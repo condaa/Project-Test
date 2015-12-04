@@ -1,0 +1,15 @@
+C:\Users\Ah\Dropbox\[ALG'15] Materials\---- Staff only ----\Projects\Intelligent Scissors\[TEMPLATE] IntelligentScissors\IntelligentScissors\bin\Debug\IntelligentScissors.exe
+C:\Users\Ah\Dropbox\[ALG'15] Materials\---- Staff only ----\Projects\Intelligent Scissors\[TEMPLATE] IntelligentScissors\IntelligentScissors\bin\Debug\IntelligentScissors.pdb
+C:\Users\Ah\Dropbox\[ALG'15] Materials\---- Staff only ----\Projects\Intelligent Scissors\[TEMPLATE] IntelligentScissors\IntelligentScissors\obj\Debug\IntelligentScissors.Properties.Resources.resources
+C:\Users\Ah\Dropbox\[ALG'15] Materials\---- Staff only ----\Projects\Intelligent Scissors\[TEMPLATE] IntelligentScissors\IntelligentScissors\obj\Debug\IntelligentScissors.csproj.GenerateResource.Cache
+C:\Users\Ah\Dropbox\[ALG'15] Materials\---- Staff only ----\Projects\Intelligent Scissors\[TEMPLATE] IntelligentScissors\IntelligentScissors\obj\Debug\IntelligentScissors.exe
+C:\Users\Ah\Dropbox\[ALG'15] Materials\---- Staff only ----\Projects\Intelligent Scissors\[TEMPLATE] IntelligentScissors\IntelligentScissors\obj\Debug\IntelligentScissors.pdb
+C:\Users\Ah\Dropbox\[ALG'15] Materials\---- Staff only ----\Projects\Intelligent Scissors\[TEMPLATE] IntelligentScissors\IntelligentScissors\obj\Debug\IntelligentScissors.MainForm.resources
+D:\Academy\Dropbox\Startup Codes\Intelligent Scissors Startup Code\Intelligent Scissors Startup Code\[TEMPLATE] IntelligentScissors\IntelligentScissors\obj\Debug\IntelligentScissors.exe
+D:\Academy\Dropbox\Startup Codes\Intelligent Scissors Startup Code\Intelligent Scissors Startup Code\[TEMPLATE] IntelligentScissors\IntelligentScissors\obj\Debug\IntelligentScissors.pdb
+D:\Academy\Dropbox\Startup Codes\Intelligent Scissors Startup Code\Intelligent Scissors Startup Code\[TEMPLATE] IntelligentScissors\IntelligentScissors\bin\Debug\IntelligentScissors.exe
+D:\Academy\Dropbox\Startup Codes\Intelligent Scissors Startup Code\Intelligent Scissors Startup Code\[TEMPLATE] IntelligentScissors\IntelligentScissors\bin\Debug\IntelligentScissors.pdb
+D:\Academy\Dropbox\Startup Codes\Intelligent Scissors Startup Code\Intelligent Scissors Startup Code\[TEMPLATE] IntelligentScissors\IntelligentScissors\obj\Debug\IntelligentScissors.csprojResolveAssemblyReference.cache
+D:\Academy\Dropbox\Startup Codes\Intelligent Scissors Startup Code\Intelligent Scissors Startup Code\[TEMPLATE] IntelligentScissors\IntelligentScissors\obj\Debug\IntelligentScissors.MainForm.resources
+D:\Academy\Dropbox\Startup Codes\Intelligent Scissors Startup Code\Intelligent Scissors Startup Code\[TEMPLATE] IntelligentScissors\IntelligentScissors\obj\Debug\IntelligentScissors.Properties.Resources.resources
+D:\Academy\Dropbox\Startup Codes\Intelligent Scissors Startup Code\Intelligent Scissors Startup Code\[TEMPLATE] IntelligentScissors\IntelligentScissors\obj\Debug\IntelligentScissors.csproj.GenerateResource.Cache
