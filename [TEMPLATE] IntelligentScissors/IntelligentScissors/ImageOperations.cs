@@ -21,17 +21,23 @@ namespace IntelligentScissors
     {
         public double red, green, blue;
     }
-    
+
     /// <summary>
     /// Holds the edge energy between 
     ///     1. a pixel and its right one (X)
     ///     2. a pixel and its bottom one (Y)
     /// </summary>
-    public struct Vector2D
+    public class Vector2D
     {
         public double X { get; set; }
         public double Y { get; set; }
+        public Vector2D(double x, double y)
+        {
+            X = x; Y = y;
+        }
+
     }
+
 
     /// <summary>
     /// Library of static functions that deal with images
@@ -102,7 +108,7 @@ namespace IntelligentScissors
 
             return Buffer;
         }
-        
+
         /// <summary>
         /// Get the height of the image 
         /// </summary>
@@ -123,6 +129,7 @@ namespace IntelligentScissors
             return ImageMatrix.GetLength(1);
         }
 
+
         /// <summary>
         /// Calculate edge energy between
         ///     1. the given pixel and its right one (X)
@@ -142,9 +149,9 @@ namespace IntelligentScissors
             double edgeAngle = Math.Atan2(gradient.Y, gradient.X);
             double rotatedEdgeAngle = edgeAngle + Math.PI / 2.0;
 
-            Vector2D energy = new Vector2D();
-            energy.X = Math.Abs(gradientMagnitude * Math.Cos(rotatedEdgeAngle));
-            energy.Y = Math.Abs(gradientMagnitude * Math.Sin(rotatedEdgeAngle));
+            Vector2D energy = new Vector2D(
+             Math.Abs(gradientMagnitude * Math.Cos(rotatedEdgeAngle)),
+             Math.Abs(gradientMagnitude * Math.Sin(rotatedEdgeAngle)));
 
             return energy;
         }
@@ -188,13 +195,13 @@ namespace IntelligentScissors
         }
 
 
-       /// <summary>
-       /// Apply Gaussian smoothing filter to enhance the edge detection 
-       /// </summary>
-       /// <param name="ImageMatrix">Colored image matrix</param>
-       /// <param name="filterSize">Gaussian mask size</param>
-       /// <param name="sigma">Gaussian sigma</param>
-       /// <returns>smoothed color image</returns>
+        /// <summary>
+        /// Apply Gaussian smoothing filter to enhance the edge detection 
+        /// </summary>
+        /// <param name="ImageMatrix">Colored image matrix</param>
+        /// <param name="filterSize">Gaussian mask size</param>
+        /// <param name="sigma">Gaussian sigma</param>
+        /// <returns>smoothed color image</returns>
         public static RGBPixel[,] GaussianFilter1D(RGBPixel[,] ImageMatrix, int filterSize, double sigma)
         {
             int Height = GetHeight(ImageMatrix);
@@ -203,7 +210,7 @@ namespace IntelligentScissors
             RGBPixelD[,] VerFiltered = new RGBPixelD[Height, Width];
             RGBPixel[,] Filtered = new RGBPixel[Height, Width];
 
-           
+
             // Create Filter in Spatial Domain:
             //=================================
             //make the filter ODD size
@@ -282,6 +289,7 @@ namespace IntelligentScissors
 
 
         #region Private Functions
+
         /// <summary>
         /// Calculate Gradient vector between the given pixel and its right and bottom ones
         /// </summary>
@@ -291,11 +299,11 @@ namespace IntelligentScissors
         /// <returns></returns>
         private static Vector2D CalculateGradientAtPixel(int x, int y, RGBPixel[,] ImageMatrix)
         {
-            Vector2D gradient = new Vector2D();
+            Vector2D gradient = new Vector2D(0, 0);
 
             RGBPixel mainPixel = ImageMatrix[y, x];
             double pixelGrayVal = 0.21 * mainPixel.red + 0.72 * mainPixel.green + 0.07 * mainPixel.blue;
-            
+
             if (y == GetHeight(ImageMatrix) - 1)
             {
                 //boundary pixel.
@@ -308,7 +316,7 @@ namespace IntelligentScissors
             {
                 RGBPixel downPixel = ImageMatrix[y + 1, x];
                 double downPixelGrayVal = 0.21 * downPixel.red + 0.72 * downPixel.green + 0.07 * downPixel.blue;
-                
+
                 gradient.Y = pixelGrayVal - downPixelGrayVal;
             }
 
@@ -316,21 +324,22 @@ namespace IntelligentScissors
             {
                 //boundary pixel.
                 gradient.X = 0;
-                
+
             }
             else
             {
                 RGBPixel rightPixel = ImageMatrix[y, x + 1];
                 double rightPixelGrayVal = 0.21 * rightPixel.red + 0.72 * rightPixel.green + 0.07 * rightPixel.blue;
-                
+
                 gradient.X = pixelGrayVal - rightPixelGrayVal;
             }
 
-            
+
             return gradient;
         }
 
-  
         #endregion
+
+        
     }
 }
