@@ -3,8 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
+using System.Drawing  ;
 namespace IntelligentScissors
 {
+
+
+
+
+
+
+
+  public   enum PFmode
+    {
+        exist  , update 
+    }
 
     /// <summary>
     /// the periority queue heap based implementation
@@ -144,8 +156,56 @@ namespace IntelligentScissors
         }
     }
 
-    public static class ShortestPath_Operations
+    public  class ShortestPath_Operations
     {
+
+
+
+        List<int> parent_list; 
+        int curr_width ;
+        List<List<Edge>> curr_Graph;
+
+        public ShortestPath_Operations(      List<List<Edge>> initial_graph , int initial_mat_width  )
+        {
+
+            curr_Graph = initial_graph;
+            curr_width = initial_mat_width; 
+
+
+        }
+
+        public void update_data(List<List<Edge>> _graph, int _mat_width )
+        {
+            curr_Graph = _graph;
+            curr_width = _mat_width; 
+
+
+        }
+
+
+        public Point[] Pathfind(int source, int dest ,  PFmode mode  )
+        {
+           switch (mode ) {
+
+               case PFmode.update :
+                   parent_list = Dijkstra(curr_Graph, source);
+                   return Backtracking(parent_list, dest, curr_width).ToArray(); 
+               case PFmode.exist :
+                   if (parent_list == null)
+                       parent_list = Dijkstra(curr_Graph, source);
+
+                   return Backtracking(parent_list , dest , curr_width ).ToArray(); 
+
+                default  : 
+                   break ; 
+           }
+
+
+
+           return null; 
+
+        }
+
         /// <summary>
         /// generate the shortest path from source node to all other nodes
         /// </summary>
@@ -153,15 +213,14 @@ namespace IntelligentScissors
         /// <param name="Source"></param>
         /// <param name="Dest"></param>
         /// <returns></returns>
-        public static List<int> GenerateShortestPath(List<List<Edge>> Graph, int Source, int Dest)
+        public static  List<Point> GenerateShortestPath(List<List<Edge>> Graph, int Source, int Dest  , int width )
         {
             // return sortest path btween src & all other nodes 
             List<int> Previous_list = Dijkstra(Graph, Source);
 
             // Backtracking shortest path to (Dest)node  from previous list 
-            List<int> ShortestPath = Backtracking(Previous_list, Dest);
+            return  Backtracking(Previous_list, Dest , width );
             
-            return ShortestPath;
         }
        
         
@@ -172,9 +231,9 @@ namespace IntelligentScissors
         /// <param name="Source"></param>
         /// <param name="Dest"></param>
         /// <returns>shortestpath</returns>
-        public static List<int> Backtracking(List<int>Previous_list, int Dest)
+        public  static List< Point > Backtracking(List<int>Previous_list, int Dest , int matrix_width )
          {
-             List<int> ShortestPath = new List<int>(); // shortest path bteewn Source node and destination
+             List<Point> ShortestPath = new List<Point>(); // shortest path bteewn Source node and destination
 
              Stack<int> RevPath = new Stack<int>();   //the reversed shortest path bteewn Source node and destination   
              
@@ -187,11 +246,14 @@ namespace IntelligentScissors
                RevPath.Push(previous); // push last node in the path   
                previous = Previous_list[previous]; //previous of current node
              }
-            
             //revrese the reversed path 
-            while(RevPath.Count!=0){
-                ShortestPath.Add(RevPath.Pop());
-            }
+
+             while (RevPath.Count != 0)
+             {
+                 var p = Helper.Unflatten(RevPath.Pop(), matrix_width);
+                 Point point = new Point((int)p.X, (int)p.Y);
+                 ShortestPath.Add(point);
+             }
 
             // return shortest path bteewn Source node and destination
             return ShortestPath;

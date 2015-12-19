@@ -29,10 +29,47 @@ namespace IntelligentScissors
         /// <returns> vector2d  (X,Y) </X></returns>
         public static Vector2D Unflatten(int Index, int width) 
         {
-            // y -> row ,  x -> column 
+            // y -> row ,  x -> column  
             return new Vector2D((int)Index % (int)width, (int)Index / width);
         }
 
+
+
+        public static List<T> AppendToList<T>(List<T> dest, List<T> sourc)
+        {
+            if (dest == null || sourc == null)
+            {
+
+                throw new ArgumentNullException(); 
+            }
+
+
+            List<T> tmp = dest;
+            for (int i = 0; i < sourc.Count; i++)
+            {
+                tmp.Add(sourc[i]);
+            }
+            return tmp;
+
+        }
+        public static List<T> AppendToList<T>(List<T> dest, T[] sourc)
+        {
+            if (dest == null || sourc == null)
+            {
+                return null; 
+                throw new ArgumentNullException();
+               
+            }
+
+
+            List<T> tmp = dest;
+            for (int i = 0; i < sourc.Length; i++)
+            {
+                tmp.Add(sourc[i]);
+            }
+            return tmp;
+
+        }
     
     }
   
