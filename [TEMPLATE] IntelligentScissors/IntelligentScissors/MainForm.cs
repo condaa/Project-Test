@@ -29,6 +29,8 @@ namespace IntelligentScissors
             }
             txtWidth.Text = ImageOperations.GetWidth(ImageMatrix).ToString();
             txtHeight.Text = ImageOperations.GetHeight(ImageMatrix).ToString();
+            List<List<Edge>> graph = GraphOperations.Graph_Constraction(ImageMatrix);
+            List<int> SP = ShortestPath_Operations.GenerateShortestPath(graph,0,10); 
         }
 
         private void btnGaussSmooth_Click(object sender, EventArgs e)
@@ -39,8 +41,5 @@ namespace IntelligentScissors
             ImageOperations.DisplayImage(ImageMatrix, pictureBox2);
         }
 
-
-       
-       
     }
 }

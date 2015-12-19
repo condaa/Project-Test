@@ -29,7 +29,7 @@ namespace IntelligentScissors
         /// <returns> vector2d  (X,Y) </X></returns>
         public static Vector2D Unflatten(int Index, int width) 
         {
-            // x -> row ,  y -> column 
+            // y -> row ,  x -> column 
             return new Vector2D((int)Index % (int)width, (int)Index / width);
         }
 
@@ -61,7 +61,7 @@ namespace IntelligentScissors
             int Width = ImageOperations.GetWidth(ImageMatrix);
 
             //get x , y indices of the node
-            var unflat = Helper.Unflatten(Node_Index, Width);    
+            var unflat = Helper.Unflatten(Node_Index, Width); 
             int X = (int)unflat.X, Y = (int)unflat.Y;
 
 
@@ -118,16 +118,16 @@ namespace IntelligentScissors
                 for (int j = 0; j < Width; j++)
                 {
 
-                    int node_index = Helper.Flatten(i, j, Width); // get flat pixel x,y to 1d number 
+                    int node_index = Helper.Flatten(j, i, Width); // get flat pixel x,y to 1d number 
 
                     //constract neighbours list of current pixel(node_index) and add it in  the adj list
                     adj_list.Add(Get_neighbours(node_index, ImageMatrix)); 
-
                 }
             }
 
             return adj_list; // return graph adj list
         }
+        
         #endregion
     }
 
