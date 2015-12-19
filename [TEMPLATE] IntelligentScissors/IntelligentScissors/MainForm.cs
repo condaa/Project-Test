@@ -52,6 +52,20 @@ namespace IntelligentScissors
 
         RGBPixel[,] ImageMatrix;
 
+
+        void reset()
+        {
+
+
+
+            curr_path = null; 
+
+            AnchorPts.Clear();
+            Mainselction.Clear();
+            prev_source = -1;
+            curr_source =-1 ; 
+
+        }
         private void btnOpen_Click(object sender, EventArgs e)
         {
             
@@ -63,7 +77,11 @@ namespace IntelligentScissors
                 string OpenedFilePath = openFileDialog1.FileName;
                 ImageMatrix = ImageOperations.OpenImage(OpenedFilePath);
                 ImageOperations.DisplayImage(ImageMatrix, pictureBox1);
-                AnchorPts.Clear(); 
+
+
+
+                reset(); 
+
             }
             txtWidth.Text = ImageOperations.GetWidth(ImageMatrix).ToString();
             txtHeight.Text = ImageOperations.GetHeight(ImageMatrix).ToString();

@@ -28,3 +28,4 @@ C:\Users\mada\Documents\GitHub\Project-Test\[TEMPLATE] IntelligentScissors\Intel
 C:\Users\mada\Documents\GitHub\Project-Test\[TEMPLATE] IntelligentScissors\IntelligentScissors\obj\Debug\IntelligentScissors.MainForm.resources
 C:\Users\mada\Documents\GitHub\Project-Test\[TEMPLATE] IntelligentScissors\IntelligentScissors\obj\Debug\IntelligentScissors.Properties.Resources.resources
 C:\Users\mada\Documents\GitHub\Project-Test\[TEMPLATE] IntelligentScissors\IntelligentScissors\obj\Debug\IntelligentScissors.csproj.GenerateResource.Cache
+C:\Users\mada\Documents\GitHub\Project-Test\[TEMPLATE] IntelligentScissors\IntelligentScissors\obj\Debug\IntelligentScissors.csprojResolveAssemblyReference.cache
