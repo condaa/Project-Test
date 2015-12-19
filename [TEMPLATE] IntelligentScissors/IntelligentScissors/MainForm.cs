@@ -195,6 +195,12 @@ namespace IntelligentScissors
                 if (Mainselction != null && Mainselction.Count > 5)
                     customDrawer.drawDottedLine(e.Graphics, new Pen(Brushes.Orange), Mainselction.ToArray(), DashPattern);
 
+
+
+                if ( curr_path != null )
+                    if (curr_path.Length > 10)
+                        customDrawer.drawDottedLine(g, new Pen(Brushes.Aqua), curr_path, DashPattern);
+
             }
             
         }
