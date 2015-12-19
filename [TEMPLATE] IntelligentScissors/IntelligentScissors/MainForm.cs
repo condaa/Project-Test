@@ -30,8 +30,11 @@ namespace IntelligentScissors
         Point[] curr_path; 
 
         int curr_source  =  -1 ,prev_source =-1  ;
-       
 
+
+
+        Pen m_pen = new Pen(Brushes.Orange, 2);
+        Pen c_pen = new Pen(Brushes.Aqua, 2); 
 
        
 
@@ -68,7 +71,7 @@ namespace IntelligentScissors
         }
         private void btnOpen_Click(object sender, EventArgs e)
         {
-            
+             
 
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
@@ -135,7 +138,7 @@ namespace IntelligentScissors
                     
                     
                         if ( path.Length > 10 ) 
-                        customDrawer.drawDottedLine(g, new Pen( Brushes.Aqua ) , path, DashPattern);
+                        customDrawer.drawDottedLine(g, c_pen , path, DashPattern);
 
                         prev_source = source;
                         curr_path = path; 
@@ -193,13 +196,13 @@ namespace IntelligentScissors
                 }
 
                 if (Mainselction != null && Mainselction.Count > 5)
-                    customDrawer.drawDottedLine(e.Graphics, new Pen(Brushes.Orange), Mainselction.ToArray(), DashPattern);
+                    customDrawer.drawDottedLine(e.Graphics,  m_pen, Mainselction.ToArray(), DashPattern);
 
 
 
                 if ( curr_path != null )
                     if (curr_path.Length > 10)
-                        customDrawer.drawDottedLine(g, new Pen(Brushes.Aqua), curr_path, DashPattern);
+                        customDrawer.drawDottedLine(g, c_pen, curr_path, DashPattern);
 
             }
             
